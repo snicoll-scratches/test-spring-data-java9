@@ -1,12 +1,15 @@
 package com.example.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import reactor.core.publisher.Mono;
+
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 /**
+ *
  * @author Stephane Nicoll
  */
-public interface SpeakerRepository extends CrudRepository<Speaker, String> {
+public interface SpeakerRepository extends ReactiveCrudRepository<Speaker, String> {
 
-    Speaker findByTwitter(String twitter);
+	Mono<Speaker> findByTwitter(String twitter);
 
 }
